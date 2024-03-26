@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RecipeServices</name>
+    </assembly>
+    <members>
+        <member name="T:RecipeServices.RecipeService">
+            <summary>
+            Service class for managing recipes.
+            </summary>
+        </member>
+        <member name="M:RecipeServices.RecipeService.#ctor(RecipeData.RecipeDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RecipeServices.RecipeService"/> class.
+            </summary>
+            <param name="dbContext">The database context.</param>
+        </member>
+        <member name="M:RecipeServices.RecipeService.CreateRecipe(System.String,System.Collections.Generic.List{RecipeModels.RecipeIngredient},System.String,System.String)">
+            <summary>
+            Creates a new recipe.
+            </summary>
+            <param name="name">The name of the recipe.</param>
+            <param name="ingredients">The list of ingredients for the recipe.</param>
+            <param name="description">The description of the recipe.</param>
+            <param name="categoryName">The name of the category to which the recipe belongs.</param>
+        </member>
+        <member name="M:RecipeServices.RecipeService.DeleteRecipe(System.Int32)">
+            <summary>
+            Deletes a recipe by its ID.
+            </summary>
+            <param name="id">The ID of the recipe to delete.</param>
+        </member>
+        <member name="M:RecipeServices.RecipeService.GetAllRecipes">
+            <summary>
+            Retrieves all recipes.
+            </summary>
+            <returns>An enumerable collection of recipes.</returns>
+        </member>
+        <member name="M:RecipeServices.RecipeService.GetRecipeById(System.Int32)">
+            <summary>
+            Retrieves a recipe by its ID.
+            </summary>
+            <param name="id">The ID of the recipe to retrieve.</param>
+            <returns>The recipe with the specified ID, or null if not found.</returns>
+        </member>
+        <member name="M:RecipeServices.RecipeService.UpdateRecipe(RecipeData.Models.Recipe)">
+            <summary>
+            Updates an existing recipe.
+            </summary>
+            <param name="recipe">The recipe to update.</param>
+            <remarks>
+            This method updates an existing recipe in the database with the provided recipe object.
+            It first finds the existing recipe by its ID and then detaches it from the context to avoid
+            conflicts with entity tracking. After detaching, the method updates the recipe object
+            with the EntityState.Modified flag, indicating that it should be marked as modified in the context.
+            Finally, it saves the changes to the database.
+            </remarks>
+        </member>
+    </members>
+</doc>
